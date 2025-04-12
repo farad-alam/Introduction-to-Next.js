@@ -40,13 +40,13 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <Link href="/parallel-dashboard">Parallel Dashboard</Link>
           </li>
           <li>
             <Link href="/blogs">Blogs</Link>
           </li>
           <li>
-            <a>Item 3</a>
+            <Link href="/dashboard">Dashboard</Link>
           </li>
         </ul>
       </div>
