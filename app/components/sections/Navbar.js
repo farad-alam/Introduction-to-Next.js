@@ -48,6 +48,9 @@ function Navbar() {
           <li>
             <Link href="/dashboard">Dashboard</Link>
           </li>
+          <li>
+            <Link href="/intercepting">Intercepting</Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
