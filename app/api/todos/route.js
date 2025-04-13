@@ -1,6 +1,12 @@
 import todos from '@/public/todos'
 
-export async function GET() {
+export async function GET(request) {
+  const searchParams = request.nextUrl.searchParams
+  const serchText = searchParams.get("search")
+  if (serchText) {
+    const filterTodos = todos.filter(todo => todo.title.toLowerCase().includes(serchText))
+    return Response.json(filterTodos)
+  }
   return Response.json(todos)
 }
 
