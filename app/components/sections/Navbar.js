@@ -51,6 +51,9 @@ function Navbar() {
           <li>
             <Link href="/intercepting">Intercepting</Link>
           </li>
+          <li>
+            <Link href="/fetch-data">Fetch Data</Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">

@@ -11,21 +11,32 @@ function getLocale(request) {
     const languages = new Negotiator({headers}).languages()
     return match(languages, locales, defaultLocal)
 }
+export async function middleware(request){}
 
-export async function middleware(request) {
-    console.log("middleware called");
-  const pathName = request.nextUrl.pathname;
+// export async function middleware(request) {
+//   console.log("middleware called");
+//   const pathName = request.nextUrl.pathname;
 
-  const isLocalMissinginPath = locales.every((local) => 
-    !pathName.startsWith(`/${local}`) && !pathName.startsWith(`/${local}/`)
-  );
-  if (isLocalMissinginPath) {
-    const local = getLocale(request);
-    return NextResponse.redirect(new URL(`/${local}/${pathName}`, request.url ));
-  }
+//   // Skip middleware for static files and Next.js internals
+//   if (
+//     pathName.startsWith("/_next/") ||
+//     pathName.includes(".") || // static files
+//     pathName.startsWith("/api/")
+//   ) {
+//     return NextResponse.next();
+//   }
 
-  return NextResponse.next();
-}
+//   const isLocalMissinginPath = locales.every(
+//     (local) =>
+//       !pathName.startsWith(`/${local}`) && !pathName.startsWith(`/${local}/`)
+//   );
+//   if (isLocalMissinginPath) {
+//     const local = getLocale(request);
+//     return NextResponse.redirect(new URL(`/${local}/${pathName}`, request.url));
+//   }
+
+//   return NextResponse.next();
+// }
 
 /** 
 export function middleware(request) {
